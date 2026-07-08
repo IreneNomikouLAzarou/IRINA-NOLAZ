@@ -98,25 +98,27 @@
 
         /* Sections */
         section {
-            display: none;
+            display: none !important;
         }
 
         section.active {
-            display: flex;
+            display: flex !important;
         }
 
         /* Hero Section */
         .hero {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);  /* Adjust purple to match yours */
-        gap: 20px;
-        box-sizing: border-box;
-        overflow: visible;
+            background: linear-gradient(135deg, #8080ff 0%, #7070e8 100%);
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
         }
+
         .sun-container {
             position: relative;
             width: 300px;
@@ -124,13 +126,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: -40px;
+            margin-bottom: 30px;
         }
 
         /* Sun with refined glow */
         .sun {
-            width: 160px;
-            height: 160px;
+            width: 200px;
+            height: 200px;
             background: radial-gradient(circle at 35% 35%, #FDD76E, #F9C956, #E8A844);
             border-radius: 50%;
             box-shadow: 0 0 60px rgba(220, 180, 120, 0.35),
@@ -166,10 +168,10 @@
             font-size: 72px;
             font-weight: 400;
             letter-spacing: 12px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-shadow: none;
             font-family: 'Playfair Display', 'Georgia', serif;
-            color: black;
+            color: white;
         }
 
         .hero p {
@@ -177,7 +179,7 @@
             font-weight: 300;
             letter-spacing: 4px;
             opacity: 0.95;
-            color: black;
+            color: white;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -666,7 +668,6 @@
     <nav>
         <div class="logo" id="navLogo">
             <img src="hq irina nolaz logo.png" alt="IRINA NOLAZ Logo" style="width: 150px; height: auto;">
-            
         </div>
         <ul class="nav-links">
             <li><a onclick="showSection('home')">HOME</a></li>
@@ -939,6 +940,33 @@
         let currentJewelry = 0;
         let currentPhoto = 0;
 
+        // FIXED showSection function
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Update logo visibility
+            const logo = document.getElementById('navLogo');
+            if (sectionId === 'home') {
+                logo.classList.add('hidden');
+            } else {
+                logo.classList.remove('hidden');
+            }
+
+            // Update detail page if viewing jewelry detail
+            if (sectionId === 'jewelryDetail') {
+                updateDetailPage();
+            }
+        }
+
         function setLanguage(lang) {
             currentLanguage = lang;
             updateAllText();
@@ -1012,27 +1040,9 @@
             }
         }
 
-        function showSection(sectionId) {
-            // Update logo visibility
-            const logo = document.getElementById('navLogo');
-            if (sectionId === 'home') {
-                logo.classList.add('hidden');
-            } else {
-                logo.classList.remove('hidden');
-            }
-
-            // Hide all sections
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-        }
-
         function openJewelryDetail(index) {
             currentJewelry = index;
             currentPhoto = 0;
-            updateDetailPage();
             showSection('jewelryDetail');
         }
 
