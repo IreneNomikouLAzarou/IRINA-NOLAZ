@@ -344,167 +344,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Jewelry Detail Section */
-        .jewelry-detail {
-            flex-direction: column;
-            padding: 80px 40px;
-            background: white;
-            min-height: 100vh;
-            margin-top: 70px;
-        }
-
-        .detail-header {
-            max-width: 1200px;
-            margin: 0 auto 60px;
-        }
-
-        .back-button {
-            color: #d4a574;
-            background: none;
-            border: none;
-            font-size: 14px;
-            cursor: pointer;
-            font-weight: 600;
-            letter-spacing: 2px;
-            transition: color 0.3s ease;
-            margin-bottom: 40px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .back-button:hover {
-            color: #c49460;
-        }
-
-        .detail-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-        }
-
-        .detail-gallery {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .detail-image {
-            width: 100%;
-            height: 500px;
-            background: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 180px;
-            margin-bottom: 30px;
-            border-radius: 4px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .gallery-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            width: 100%;
-        }
-
-        .nav-arrow {
-            background: none;
-            border: none;
-            color: #333;
-            font-size: 28px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            padding: 0;
-        }
-
-        .nav-arrow:hover {
-            color: #d4a574;
-        }
-
-        .image-counter {
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-            font-weight: 500;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .jewelry-price {
-            text-align: center;
-            font-size: 18px;
-            color: #333;
-            margin-top: 25px;
-            font-weight: 400;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .detail-info h1 {
-            font-size: 42px;
-            color: #2c2c2c;
-            font-weight: 400;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', 'Georgia', serif;
-        }
-
-        .detail-info p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .detail-section {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .detail-section:last-of-type {
-            border-bottom: none;
-        }
-
-        .detail-section h3 {
-            font-size: 14px;
-            color: #999;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .detail-section p {
-            font-size: 16px;
-            color: #2c2c2c;
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .inquiry-button {
-            background: #d4a574;
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 3px;
-            font-size: 14px;
-            cursor: pointer;
-            font-weight: 600;
-            letter-spacing: 2px;
-            width: 100%;
-            transition: background 0.3s ease;
-            margin-top: 20px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .inquiry-button:hover {
-            background: #c49460;
-        }
-
         /* Contact Section */
         .contact {
             flex-direction: column;
@@ -605,13 +444,6 @@
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            .detail-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-
         @media (max-width: 768px) {
             nav {
                 padding: 15px 20px;
@@ -621,9 +453,6 @@
             .nav-links {
                 gap: 15px;
                 font-size: 12px;
-                order: 3;
-                width: 100%;
-                margin-top: 10px;
             }
 
             .logo {
@@ -647,19 +476,6 @@
             .about, .collections, .contact, .exhibitions {
                 padding: 40px 20px;
             }
-
-            .detail-image {
-                height: 350px;
-                font-size: 120px;
-            }
-
-            .detail-info h1 {
-                font-size: 32px;
-            }
-
-            .hero {
-                margin-top: 120px;
-            }
         }
     </style>
 </head>
@@ -676,7 +492,7 @@
             <li><a onclick="showSection('exhibitions')">EXHIBITIONS</a></li>
             <li><a onclick="showSection('contact')">CONTACT</a></li>
         </ul>
-        <button class="language-toggle">EL / EN</button>
+        <button class="language-toggle" onclick="toggleLanguage()">EL / EN</button>
     </nav>
 
     <!-- Hero Section -->
@@ -686,42 +502,39 @@
         </div>
         <div class="hero-text">
             <h1>IRINA NOLAZ</h1>
-            <p>Intentional Jewelry Studio</p>
+            <p id="heroSubtitle">Intentional Jewelry Studio</p>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
-        <h2>About Us</h2>
-        <p>Since 2012, IRINA NOLAZ has been creating intentional jewelry that speaks to the soul. Each piece begins as an idea drawn from nature, a color palette, a shape, an emotion waiting to be captured in precious and semi-precious stones, silver, enamel, resin, and hand-inlaid mosaic. We believe that jewelry is not decoration it is a conversation between maker and wearer, a small object chosen to hold meaning.
-        Our process is entirely handmade and hand-drawn. Every design, every line, every stone placement emerges from the artist's hand with intention and care. We create in small batches because mass production cannot hold the depth we seek. Each piece carries its own story—not one we impose, but one our clients choose to live with. We work with colors that generate feelings, the warmth of amber against skin, 
-            the calm of turquoise, the strength of deep indigo. We craft pieces for everyday wear, moments of quiet beauty, objects that grow more meaningful the longer you know them. Our jewelry asks nothing of its wearer except honesty, the willingness to choose something that resonates, that feels true.
-            This is wearable art born from a simple belief, that beauty and intention belong in the moments we live through every day.</p>
+        <h2 id="aboutTitle">About Us</h2>
+        <p id="aboutContent">Since 2012, IRINA NOLAZ Studio has been creating intentional jewelry that speaks to the soul. Each piece begins as an idea drawn from nature, a color palette, a shape, an emotion waiting to be captured in precious and semi-precious stones, silver, enamel, resin, and hand-inlaid mosaic. We believe that jewelry is not decoration it is a conversation between maker and wearer, a small object chosen to hold meaning. Our process is entirely handmade and hand-drawn. Every design, every line, every stone placement emerges from the artist's hand with intention and care. We create in small batches because mass production cannot hold the depth we seek. Each piece carries its own story—not one we impose, but one our clients choose to live with. We work with colors that generate feelings, the warmth of amber against skin, the calm of turquoise, the strength of deep indigo. We craft pieces for everyday wear, moments of quiet beauty, objects that grow more meaningful the longer you know them. Our jewelry asks nothing of its wearer except honesty, the willingness to choose something that resonates, that feels true. This is wearable art born from a simple belief, that beauty and intention belong in the moments we live through every day.</p>
     </section>
 
     <!-- Collections Section -->
     <section class="collections" id="collections">
-        <h2>Collections</h2>
+        <h2 id="collectionsTitle">Collections</h2>
         <div class="collection-grid">
-            <div class="collection-item" onclick="openJewelryDetail(0)">
+            <div class="collection-item">
                 <div class="collection-image">💍</div>
                 <h3>Elegance Ring</h3>
                 <p>Timeless sophistication</p>
                 <span class="view-link">VIEW COLLECTION →</span>
             </div>
-            <div class="collection-item" onclick="openJewelryDetail(1)">
+            <div class="collection-item">
                 <div class="collection-image">💎</div>
                 <h3>Sapphire Bracelet</h3>
                 <p>Luxurious elegance</p>
                 <span class="view-link">VIEW COLLECTION →</span>
             </div>
-            <div class="collection-item" onclick="openJewelryDetail(2)">
+            <div class="collection-item">
                 <div class="collection-image">📿</div>
                 <h3>Rose Gold Necklace</h3>
                 <p>Modern beauty</p>
                 <span class="view-link">VIEW COLLECTION →</span>
             </div>
-            <div class="collection-item" onclick="openJewelryDetail(3)">
+            <div class="collection-item">
                 <div class="collection-image">✨</div>
                 <h3>Diamond Earrings</h3>
                 <p>Sparkling radiance</p>
@@ -732,7 +545,7 @@
 
     <!-- Exhibitions Section -->
     <section class="exhibitions" id="exhibitions">
-        <h2>Exhibitions</h2>
+        <h2 id="exhibitionsTitle">Exhibitions</h2>
         <div class="exhibitions-grid">
             <div class="exhibition-card">
                 <h3>Luxury Gems Showcase 2024</h3>
@@ -752,44 +565,10 @@
         </div>
     </section>
 
-    <!-- Jewelry Detail Section -->
-    <section class="jewelry-detail" id="jewelryDetail">
-        <div class="detail-header">
-            <button class="back-button" onclick="showSection('collections')">← BACK TO COLLECTIONS</button>
-        </div>
-        <div class="detail-container">
-            <div class="detail-gallery">
-                <div class="detail-image" id="jewelryImage">💍</div>
-                <div class="gallery-nav">
-                    <button class="nav-arrow" onclick="prevImage()">←</button>
-                    <span class="image-counter" id="imageCounter">1 / 5</span>
-                    <button class="nav-arrow" onclick="nextImage()">→</button>
-                </div>
-                <div class="jewelry-price" id="jewelryPrice">€2,450</div>
-            </div>
-            <div class="detail-info">
-                <h1 id="jewelryTitle">Elegance Ring</h1>
-                <p id="jewelryDescription">A timeless piece of sophistication.</p>
-
-                <div class="detail-section">
-                    <h3>Collection Details</h3>
-                    <p id="jewelryCollection">2024 Classic Collection</p>
-                </div>
-
-                <div class="detail-section">
-                    <h3>Materials & Specifications</h3>
-                    <p id="jewelryMaterials">14K Gold, Diamond 0.5ct</p>
-                </div>
-
-                <button class="inquiry-button">INQUIRE NOW</button>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2>Reach Out</h2>
-        <p>Experience our collection in person. Schedule a private viewing or consultation.</p>
+        <h2 id="contactTitle">Reach Out</h2>
+        <p id="contactText">Experience our collection in person. Schedule a private viewing or consultation.</p>
         <div class="contact-grid">
             <div class="contact-card">
                 <h3>Email</h3>
@@ -801,285 +580,69 @@
             </div>
             <div class="contact-card">
                 <h3>Schedule</h3>
-                <button class="contact-button" onclick="alert('Schedule functionality coming soon!')">Schedule Now</button>
+                <button class="contact-button">Schedule Now</button>
             </div>
         </div>
     </section>
 
     <script>
-        // Language translations
+        let currentLanguage = 'en';
+
         const translations = {
             en: {
-                home: 'HOME',
-                about: 'ABOUT',
-                collections: 'COLLECTIONS',
-                exhibitions: 'EXHIBITIONS',
-                contact: 'CONTACT',
                 aboutTitle: 'About Us',
-                aboutText: 'Each piece is meticulously crafted with passion and attention to detail. Our jewelry celebrates the beauty of natural gemstones and the artistry of handmade creation.',
+                aboutContent: 'Since 2012, IRINA NOLAZ Studio has been creating intentional jewelry that speaks to the soul. Each piece begins as an idea drawn from nature, a color palette, a shape, an emotion waiting to be captured in precious and semi-precious stones, silver, enamel, resin, and hand-inlaid mosaic. We believe that jewelry is not decoration it is a conversation between maker and wearer, a small object chosen to hold meaning. Our process is entirely handmade and hand-drawn. Every design, every line, every stone placement emerges from the artist\'s hand with intention and care. We create in small batches because mass production cannot hold the depth we seek. Each piece carries its own story—not one we impose, but one our clients choose to live with. We work with colors that generate feelings, the warmth of amber against skin, the calm of turquoise, the strength of deep indigo. We craft pieces for everyday wear, moments of quiet beauty, objects that grow more meaningful the longer you know them. Our jewelry asks nothing of its wearer except honesty, the willingness to choose something that resonates, that feels true. This is wearable art born from a simple belief, that beauty and intention belong in the moments we live through every day.',
+                heroSubtitle: 'Intentional Jewelry Studio',
                 collectionsTitle: 'Collections',
-                eleganceRing: 'Elegance Ring',
-                eleganceDesc: 'Timeless sophistication',
-                sapphireBracelet: 'Sapphire Bracelet',
-                sapphireDesc: 'Luxurious elegance',
-                roseGoldNecklace: 'Rose Gold Necklace',
-                roseGoldDesc: 'Modern beauty',
-                diamondEarrings: 'Diamond Earrings',
-                diamondDesc: 'Sparkling radiance',
-                viewCollection: 'VIEW COLLECTION →',
-                backToCollections: '← BACK TO COLLECTIONS',
-                collectionDetails: 'Collection Details',
-                materialsSpecs: 'Materials & Specifications',
-                inquireNow: 'INQUIRE NOW',
                 exhibitionsTitle: 'Exhibitions',
                 contactTitle: 'Reach Out',
-                contactText: 'Experience our collection in person. Schedule a private viewing or consultation.',
-                email: 'Email',
-                instagram: 'Instagram',
-                schedule: 'Schedule',
-                scheduleBtn: 'Schedule Now',
-                heroSubtitle: 'Artisan Handmade Jewelry',
-                exhibition1: 'Luxury Gems Showcase 2024',
-                exhibition1Date: 'March 15-30, 2024',
-                exhibition1Venue: 'Athens Contemporary Gallery',
-                exhibition2: 'Modern Elegance Collection',
-                exhibition2Date: 'April 5-20, 2024',
-                exhibition2Venue: 'Thessaloniki Design Hub',
-                exhibition3: 'Artisan Craftsmanship',
-                exhibition3Date: 'May 10-25, 2024',
-                exhibition3Venue: 'National Museum of Athens'
+                contactText: 'Experience our collection in person. Schedule a private viewing or consultation.'
             },
             gr: {
-                home: 'ΑΡΧΙΚΗ',
-                about: 'ΣΧΕΤΙΚΑ',
-                collections: 'ΣΥΛΛΟΓΕΣ',
-                exhibitions: 'ΕΚΘΕΣΕΙΣ',
-                contact: 'ΕΠΙΚΟΙΝΩΝΙΑ',
                 aboutTitle: 'Σχετικά με εμάς',
-                aboutText: 'Κάθε κομμάτι δημιουργείται με πάθος και προσοχή στη λεπτομέρεια. Τα κοσμήματά μας γιορτάζουν την ομορφιά των φυσικών πολύτιμων λίθων και την τέχνη της χειροποίητης δημιουργίας.',
+                aboutContent: 'Από το 2012 το Στούντιο IRINA NOLAZ δημιουργεί κοσμήματα που λένε μια ιστορία. Κάθε κομμάτι ξεκινάει ως σκέψη από τη φύση, μια παλέτα χρωμάτων, ένα σχήμα, ένα συναίσθημα που περιμένει να αποτυπωθεί μέσα από πολύτιμους και ημιπολύτιμους λίθους, ασήμι, σμάλτο, ρητίνη και χειροποίητα μικρά μωσαικά. Πιστεύουμε ότι το κόσμημα δεν είναι μόνο διακόσμηση, το αντιλαμβανόμαστε ως μια συνομιλία ανάμεσα στον δημιουργό και σε αυτόν που επιλέξει να το φορέσει, ένα μικρό αντικείμενο που κάποιος το διαλέγει και του δίνει νόημα. Η διαδικασία είναι εξ\' ολοκλήρου χειροποίητη με τα κοσμήματα να είναι σχεδιασμένα και κατασκευασμένα στο χέρι. Επιλέγουμε να δημιουργούμε μοναδικά κομμάτια ή περιορισμένες ποσότητες γιατί η μαζική παραγωγή δεν μπορεί να εξασφαλίσει την ουσία που αναζητούμε. Κάθε κομμάτι μεταφέρει τη δική του ιστορία, όχι μια ιστορία που του επιβάλλουμε εμείς, αλλά μια που επιλέγει ο πελάτης μας να ζήσει μαζί του. Δουλεύουμε με χρώματα που παράγουν συναισθήματα, τη ζεστασιά του κεχριμπαριού στο δέρμα, την ηρεμία της τυρκουάζ, τη δύναμη του βαθύ μωβ. Δημιουργούμε κοσμήματα που φοριούνται κάθε μέρα, στιγμές διακριτικής ομορφιάς, αντικείμενα που γίνονται πιο σημαντικά όσο περνά ο καιρός. Το κόσμημά μας δεν ζητάει τίποτα από αυτόν που το φοράει παρά μόνο ειλικρίνεια, τη θέληση να επιλέξει κάτι που του κάνει νόημα, που το νιώθει αληθινό. Η τέχνη που δημιουργούμε γεννιέται από μια απλή φιλοσοφία, ότι η ομορφιά και η σκόπιμη δημιουργία ανήκουν στις στιγμές που ζούμε κάθε μέρα.',
+                heroSubtitle: 'Στούντιο Κοσμημάτων που Λένε Ιστορία',
                 collectionsTitle: 'Συλλογές',
-                eleganceRing: 'Δακτυλίδι Κομψότητας',
-                eleganceDesc: 'Διαχρονική κομψότητα',
-                sapphireBracelet: 'Βραχιόλι Σαφίρι',
-                sapphireDesc: 'Πολυτελής κομψότητα',
-                roseGoldNecklace: 'Κολιέ Ροζ Χρυσού',
-                roseGoldDesc: 'Σύγχρονη ομορφιά',
-                diamondEarrings: 'Σκουλαρίκια με Διαμάντια',
-                diamondDesc: 'Λαμπρότητα που αστράφτει',
-                viewCollection: 'ΠΡΟΒΟΛΗ ΣΥΛΛΟΓΗΣ →',
-                backToCollections: '← ΕΠΙΣΤΡΟΦΗ ΣΤΙ ΣΥΛΛΟΓΕΣ',
-                collectionDetails: 'Λεπτομέρειες Συλλογής',
-                materialsSpecs: 'Υλικά & Προδιαγραφές',
-                inquireNow: 'ΖΗΤΗΣΗ ΠΛΗΡΟΦΟΡΙΩΝ',
                 exhibitionsTitle: 'Εκθέσεις',
                 contactTitle: 'Επικοινωνήστε',
-                contactText: 'Βιώστε τη συλλογή μας προσωπικά. Προγραμματίστε μια ιδιωτική προβολή ή συμβουλευτική.',
-                email: 'Email',
-                instagram: 'Instagram',
-                schedule: 'Ραντεβού',
-                scheduleBtn: 'Προγραμματίστε Τώρα',
-                heroSubtitle: 'Στούντιο Κοσμημάτων που Λένε Ιστορία',
-                exhibition1: 'Έκθεση Πολυτελών Πολύτιμων Λίθων 2024',
-                exhibition1Date: '15-30 Μαρτίου 2024',
-                exhibition1Venue: 'Σύγχρονη Γκαλερί Αθήνας',
-                exhibition2: 'Συλλογή Σύγχρονης Κομψότητας',
-                exhibition2Date: '5-20 Απριλίου 2024',
-                exhibition2Venue: 'Κέντρο Σχεδιασμού Θεσσαλονίκης',
-                exhibition3: 'Χειροτεχνία Τεχνιτών',
-                exhibition3Date: '10-25 Μαΐου 2024',
-                exhibition3Venue: 'Εθνικό Μουσείο Αθηνών'
+                contactText: 'Βιώστε τη συλλογή μας προσωπικά. Προγραμματίστε μια ιδιωτική προβολή ή συμβουλευτική.'
             }
         };
 
-        // Jewelry data with multiple photos
-        const jewelryItems = [
-            {
-                titleEn: 'Elegance Ring',
-                titleGr: 'Δακτυλίδι Κομψότητας',
-                descriptionEn: 'A timeless piece of sophistication. This stunning ring combines classic design with modern elegance, perfect for any occasion. Handcrafted with precision and attention to detail.',
-                descriptionGr: 'Ένα διαχρονικό κομμάτι κομψότητας. Αυτό το εκπληκτικό δακτυλίδι συνδυάζει κλασικό σχεδιασμό με σύγχρονη κομψότητα, ιδανικό για κάθε περίσταση. Χειροποίητο με ακρίβεια και προσοχή στη λεπτομέρεια.',
-                materials: '14K Gold, Diamond 0.5ct',
-                collectionEn: '2024 Classic Collection',
-                collectionGr: '2024 Κλασική Συλλογή',
-                price: '€2,450',
-                photos: ['💍', '✨', '🌟', '💎', '👑']
-            },
-            {
-                titleEn: 'Sapphire Bracelet',
-                titleGr: 'Βραχιόλι Σαφίρι',
-                descriptionEn: 'Luxurious elegance meets contemporary style. This exquisite bracelet features premium sapphires set in white gold, creating an unforgettable statement piece.',
-                descriptionGr: 'Πολυτελής κομψότητα συναντά σύγχρονο στυλ. Αυτό το εξαιρετικό βραχιόλι διαθέτει εξαιρετικά σαφίρια σε λευκό χρυσό, δημιουργώντας έναν αφής στολίδι.',
-                materials: 'White Gold, Sapphire 2ct',
-                collectionEn: '2024 Luxury Collection',
-                collectionGr: '2024 Συλλογή Πολυτέλειας',
-                price: '€3,850',
-                photos: ['💎', '💙', '✨', '🌟', '👑']
-            },
-            {
-                titleEn: 'Rose Gold Necklace',
-                titleGr: 'Κολιέ Ροζ Χρυσού',
-                descriptionEn: 'Modern beauty in its purest form. This rose gold necklace features an elegant pendant with diamond accents, designed to complement any wardrobe.',
-                descriptionGr: 'Σύγχρονη ομορφιά στην πιο καθαρή της μορφή. Αυτό το κολιέ ροζ χρυσού διαθέτει ένα κομψό κρεμαστό με διαμαντένια στολίδια, σχεδιασμένο να συμπληρώσει οποιαδήποτε ντουλάπα.',
-                materials: 'Rose Gold, Diamond 0.75ct',
-                collectionEn: '2024 Modern Collection',
-                collectionGr: '2024 Σύγχρονη Συλλογή',
-                price: '€2,950',
-                photos: ['📿', '💗', '✨', '🌟', '📫']
-            },
-            {
-                titleEn: 'Diamond Earrings',
-                titleGr: 'Σκουλαρίκια με Διαμάντια',
-                descriptionEn: 'Sparkling radiance that catches every light. These classic diamond earrings are a staple of any jewelry collection, offering timeless elegance.',
-                descriptionGr: 'Λαμπρότητα που αστράφτει σε κάθε φως. Αυτά τα κλασικά σκουλαρίκια με διαμάντια είναι ένα κύριο στοιχείο κάθε συλλογής κοσμημάτων, προσφέροντας διαχρονική κομψότητα.',
-                materials: 'Platinum, Diamond 1ct total',
-                collectionEn: '2024 Premium Collection',
-                collectionGr: '2024 Ανώτερη Συλλογή',
-                price: '€4,200',
-                photos: ['✨', '💎', '🌟', '👑', '📫']
-            }
-        ];
-
-        let currentLanguage = 'en';
-        let currentJewelry = 0;
-        let currentPhoto = 0;
-
-        // FIXED showSection function
         function showSection(sectionId) {
-            // Hide all sections
             document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // Show selected section
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.add('active');
             }
 
-            // Update logo visibility
             const logo = document.getElementById('navLogo');
             if (sectionId === 'home') {
                 logo.classList.add('hidden');
             } else {
                 logo.classList.remove('hidden');
             }
-
-            // Update detail page if viewing jewelry detail
-            if (sectionId === 'jewelryDetail') {
-                updateDetailPage();
-            }
         }
 
-        function setLanguage(lang) {
-            currentLanguage = lang;
-            updateAllText();
-            document.querySelector('.language-toggle').textContent = lang === 'en' ? 'EL / EN' : 'ΕΛ / EN';
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'gr' : 'en';
+            updateLanguage();
         }
 
-        function updateAllText() {
+        function updateLanguage() {
             const t = translations[currentLanguage];
             
-            // Update navigation
-            document.querySelectorAll('.nav-links a').forEach((link, index) => {
-                const keys = ['home', 'about', 'collections', 'exhibitions', 'contact'];
-                link.textContent = t[keys[index]];
-            });
-
-            // Update sections
-            document.querySelector('#about h2').textContent = t.aboutTitle;
-            document.querySelector('#about p').textContent = t.aboutText;
-            document.querySelector('#collections h2').textContent = t.collectionsTitle;
-            document.querySelector('#contact h2').textContent = t.contactTitle;
-            document.querySelector('#contact > p').textContent = t.contactText;
-            document.querySelector('#exhibitions h2').textContent = t.exhibitionsTitle;
-            document.querySelector('.hero p').textContent = t.heroSubtitle;
-
-            // Update collection items
-            const items = [
-                { title: 'eleganceRing', desc: 'eleganceDesc' },
-                { title: 'sapphireBracelet', desc: 'sapphireDesc' },
-                { title: 'roseGoldNecklace', desc: 'roseGoldDesc' },
-                { title: 'diamondEarrings', desc: 'diamondDesc' }
-            ];
-            
-            document.querySelectorAll('.collection-item').forEach((item, index) => {
-                item.querySelector('h3').textContent = currentLanguage === 'en' ? jewelryItems[index].titleEn : jewelryItems[index].titleGr;
-                item.querySelector('p').textContent = t[items[index].desc];
-                item.querySelector('.view-link').textContent = t.viewCollection;
-            });
-
-            // Update detail page buttons and labels
-            document.querySelector('.back-button').textContent = t.backToCollections;
-            document.querySelectorAll('.detail-section h3')[0].textContent = t.collectionDetails;
-            document.querySelectorAll('.detail-section h3')[1].textContent = t.materialsSpecs;
-            document.querySelector('.inquiry-button').textContent = t.inquireNow;
-
-            // Update contact cards
-            document.querySelectorAll('.contact-card h3').forEach((card, index) => {
-                const labels = [t.email, t.instagram, t.schedule];
-                card.textContent = labels[index];
-            });
-            document.querySelector('.contact-button').textContent = t.scheduleBtn;
-
-            // Update exhibitions
-            const exhItems = document.querySelectorAll('.exhibition-card');
-            if (exhItems.length >= 3) {
-                exhItems[0].querySelector('h3').textContent = t.exhibition1;
-                exhItems[0].querySelectorAll('p')[0].textContent = t.exhibition1Date;
-                exhItems[0].querySelectorAll('p')[1].textContent = t.exhibition1Venue;
-                
-                exhItems[1].querySelector('h3').textContent = t.exhibition2;
-                exhItems[1].querySelectorAll('p')[0].textContent = t.exhibition2Date;
-                exhItems[1].querySelectorAll('p')[1].textContent = t.exhibition2Venue;
-                
-                exhItems[2].querySelector('h3').textContent = t.exhibition3;
-                exhItems[2].querySelectorAll('p')[0].textContent = t.exhibition3Date;
-                exhItems[2].querySelectorAll('p')[1].textContent = t.exhibition3Venue;
-            }
-
-            // Update detail page if visible
-            if (document.getElementById('jewelryDetail').classList.contains('active')) {
-                updateDetailPage();
-            }
+            document.getElementById('aboutTitle').textContent = t.aboutTitle;
+            document.getElementById('aboutContent').textContent = t.aboutContent;
+            document.getElementById('heroSubtitle').textContent = t.heroSubtitle;
+            document.getElementById('collectionsTitle').textContent = t.collectionsTitle;
+            document.getElementById('exhibitionsTitle').textContent = t.exhibitionsTitle;
+            document.getElementById('contactTitle').textContent = t.contactTitle;
+            document.getElementById('contactText').textContent = t.contactText;
         }
-
-        function openJewelryDetail(index) {
-            currentJewelry = index;
-            currentPhoto = 0;
-            showSection('jewelryDetail');
-        }
-
-        function updateDetailPage() {
-            const item = jewelryItems[currentJewelry];
-            const title = currentLanguage === 'en' ? item.titleEn : item.titleGr;
-            const description = currentLanguage === 'en' ? item.descriptionEn : item.descriptionGr;
-            const collection = currentLanguage === 'en' ? item.collectionEn : item.collectionGr;
-            
-            document.getElementById('jewelryTitle').textContent = title;
-            document.getElementById('jewelryDescription').textContent = description;
-            document.getElementById('jewelryMaterials').textContent = item.materials;
-            document.getElementById('jewelryCollection').textContent = collection;
-            document.getElementById('jewelryImage').textContent = item.photos[currentPhoto];
-            document.getElementById('jewelryPrice').textContent = item.price;
-            document.getElementById('imageCounter').textContent = `${currentPhoto + 1} / ${item.photos.length}`;
-        }
-
-        function nextImage() {
-            const item = jewelryItems[currentJewelry];
-            currentPhoto = (currentPhoto + 1) % item.photos.length;
-            updateDetailPage();
-        }
-
-        function prevImage() {
-            const item = jewelryItems[currentJewelry];
-            currentPhoto = (currentPhoto - 1 + item.photos.length) % item.photos.length;
-            updateDetailPage();
-        }
-
-        // Language toggle
-        document.querySelector('.language-toggle').addEventListener('click', function() {
-            setLanguage(currentLanguage === 'en' ? 'gr' : 'en');
-        });
     </script>
 </body>
 </html>
