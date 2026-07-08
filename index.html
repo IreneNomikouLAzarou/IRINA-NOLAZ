@@ -219,6 +219,9 @@
             padding: 80px 40px;
             min-height: 100vh;
             margin-top: 70px;
+            width: 100%;
+            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
         .collections h2 {
@@ -231,12 +234,13 @@
         }
 
         .collection-categories {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
             margin-bottom: 60px;
+            box-sizing: border-box;
         }
 
         .category-button {
@@ -253,6 +257,26 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
+        .category-button[data-category="earrings"] {
+            background: rgba(234, 205, 220, 0.15);
+        }
+
+        .category-button[data-category="pendants"] {
+            background: rgba(182, 220, 208, 0.15);
+        }
+
+        .category-button[data-category="bracelets"] {
+            background: rgba(245, 214, 180, 0.15);
+        }
+
+        .category-button[data-category="rings"] {
+            background: rgba(185, 195, 235, 0.15);
+        }
+
+        .category-button[data-category="home-deco"] {
+            background: rgba(220, 220, 220, 0.15);
+        }
+
         .category-button:hover {
             border-color: #d4a574;
             transform: translateY(-5px);
@@ -266,11 +290,13 @@
 
         /* Pieces Container */
         .collection-pieces {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             display: none;
             flex-direction: column;
             gap: 60px;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
         .collection-pieces.active {
@@ -282,6 +308,9 @@
             padding: 40px;
             border-radius: 4px;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
         .piece-content {
@@ -289,6 +318,9 @@
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
         .piece-images {
@@ -365,6 +397,9 @@
             background: white;
             min-height: 100vh;
             margin-top: 70px;
+            width: 100%;
+            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
         .contact h2 {
@@ -388,11 +423,12 @@
         }
 
         .contact-grid {
-            max-width: 1000px;
+            width: 100%;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            box-sizing: border-box;
         }
 
         .contact-card {
@@ -462,6 +498,7 @@
             nav {
                 padding: 15px 20px;
                 flex-wrap: wrap;
+                width: 100%;
             }
 
             .nav-links {
@@ -489,10 +526,32 @@
 
             .about, .collections, .contact {
                 padding: 40px 20px;
+                width: 100%;
+                overflow-x: hidden;
+                box-sizing: border-box;
+            }
+
+            .collection-categories {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 15px;
+                width: 100%;
             }
 
             .piece-content {
                 grid-template-columns: 1fr;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .piece {
+                padding: 20px;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                width: 100%;
             }
         }
     </style>
@@ -504,10 +563,10 @@
             <img src="hq irina nolaz logo.png" alt="IRINA NOLAZ Logo" style="width: 100px; height: auto;">
         </div>
         <ul class="nav-links">
-            <li><a onclick="showSection('home')">HOME</a></li>
-            <li><a onclick="showSection('about')">ABOUT</a></li>
-            <li><a onclick="showSection('collections')">COLLECTIONS</a></li>
-            <li><a onclick="showSection('contact')">CONTACT</a></li>
+            <li><a onclick="showSection('home')" id="nav-link-home">HOME</a></li>
+            <li><a onclick="showSection('about')" id="nav-link-about">ABOUT</a></li>
+            <li><a onclick="showSection('collections')" id="nav-link-collections">COLLECTIONS</a></li>
+            <li><a onclick="showSection('contact')" id="nav-link-contact">CONTACT</a></li>
         </ul>
         <button class="language-toggle" onclick="toggleLanguage()">EL / EN</button>
     </nav>
@@ -534,10 +593,11 @@
         <h2 id="collectionsTitle">Collections</h2>
         
         <div class="collection-categories">
-            <button class="category-button active" onclick="selectCategory('earrings')">Earrings</button>
-            <button class="category-button" onclick="selectCategory('pendants')">Pendants</button>
-            <button class="category-button" onclick="selectCategory('bracelets')">Bracelets</button>
-            <button class="category-button" onclick="selectCategory('rings')">Rings</button>
+            <button class="category-button active" data-category="earrings" onclick="selectCategory('earrings')" id="btn-earrings">Earrings</button>
+            <button class="category-button" data-category="pendants" onclick="selectCategory('pendants')" id="btn-pendants">Pendants</button>
+            <button class="category-button" data-category="bracelets" onclick="selectCategory('bracelets')" id="btn-bracelets">Bracelets</button>
+            <button class="category-button" data-category="rings" onclick="selectCategory('rings')" id="btn-rings">Rings</button>
+            <button class="category-button" data-category="home-deco" onclick="selectCategory('home-deco')" id="btn-home-deco">Home Deco</button>
         </div>
 
         <div class="collection-pieces active" id="earrings-pieces">
@@ -687,6 +747,43 @@
                 </div>
             </div>
         </div>
+
+        <div class="collection-pieces" id="home-deco-pieces">
+            <div class="piece">
+                <div class="piece-content">
+                    <div class="piece-images">
+                        <div class="piece-main-image" id="home-deco-img-0">🏛️</div>
+                        <div class="piece-navigation">
+                            <button class="arrow-btn" onclick="prevImage('home-deco', 0)">←</button>
+                            <span id="home-deco-counter-0">1 / 3</span>
+                            <button class="arrow-btn" onclick="nextImage('home-deco', 0)">→</button>
+                        </div>
+                    </div>
+                    <div class="piece-info">
+                        <div class="piece-title">Harmony Sculpture</div>
+                        <div class="piece-material">Bronze, Hand-inlaid Mosaic</div>
+                        <div class="piece-price">€1,200</div>
+                    </div>
+                </div>
+            </div>
+            <div class="piece">
+                <div class="piece-content">
+                    <div class="piece-images">
+                        <div class="piece-main-image" id="home-deco-img-1">🎨</div>
+                        <div class="piece-navigation">
+                            <button class="arrow-btn" onclick="prevImage('home-deco', 1)">←</button>
+                            <span id="home-deco-counter-1">1 / 3</span>
+                            <button class="arrow-btn" onclick="nextImage('home-deco', 1)">→</button>
+                        </div>
+                    </div>
+                    <div class="piece-info">
+                        <div class="piece-title">Serenity Wall Art</div>
+                        <div class="piece-material">Mixed Media, Resin, Natural Elements</div>
+                        <div class="piece-price">€950</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
@@ -714,20 +811,38 @@
 
         const translations = {
             en: {
+                navHome: 'HOME',
+                navAbout: 'ABOUT',
+                navCollections: 'COLLECTIONS',
+                navContact: 'CONTACT',
                 aboutTitle: 'About Us',
                 aboutContent: 'Since 2012, IRINA NOLAZ Studio has been creating intentional jewelry that speaks to the soul. Each piece begins as an idea drawn from nature, a color palette, a shape, an emotion waiting to be captured in precious and semi-precious stones, silver, enamel, resin, and hand-inlaid mosaic. We believe that jewelry is not decoration it is a conversation between maker and wearer, a small object chosen to hold meaning. Our process is entirely handmade and hand-drawn. Every design, every line, every stone placement emerges from the artist\'s hand with intention and care. We create in small batches because mass production cannot hold the depth we seek. Each piece carries its own story—not one we impose, but one our clients choose to live with. We work with colors that generate feelings, the warmth of amber against skin, the calm of turquoise, the strength of deep indigo. We craft pieces for everyday wear, moments of quiet beauty, objects that grow more meaningful the longer you know them. Our jewelry asks nothing of its wearer except honesty, the willingness to choose something that resonates, that feels true. This is wearable art born from a simple belief, that beauty and intention belong in the moments we live through every day.',
                 heroSubtitle: 'Intentional Jewelry Studio',
                 collectionsTitle: 'Collections',
                 contactTitle: 'Reach Out',
-                contactText: 'Experience our collection in person. Schedule a private viewing or consultation.'
+                contactText: 'Experience our collection in person. Schedule a private viewing or consultation.',
+                earrings: 'Earrings',
+                pendants: 'Pendants',
+                bracelets: 'Bracelets',
+                rings: 'Rings',
+                homeDeco: 'Home Deco'
             },
             gr: {
+                navHome: 'ΑΡΧΙΚΗ',
+                navAbout: 'ΓΙΑ ΕΜΑΣ',
+                navCollections: 'ΣΥΛΛΟΓΕΣ',
+                navContact: 'ΕΠΙΚΟΙΝΩΝΙΑ',
                 aboutTitle: 'Σχετικά με εμάς',
                 aboutContent: 'Από το 2012 το Στούντιο IRINA NOLAZ δημιουργεί κοσμήματα που λένε μια ιστορία. Κάθε κομμάτι ξεκινάει ως σκέψη από τη φύση, μια παλέτα χρωμάτων, ένα σχήμα, ένα συναίσθημα που περιμένει να αποτυπωθεί μέσα από πολύτιμους και ημιπολύτιμους λίθους, ασήμι, σμάλτο, ρητίνη και χειροποίητα μικρά μωσαικά. Πιστεύουμε ότι το κόσμημα δεν είναι μόνο διακόσμηση, το αντιλαμβανόμαστε ως μια συνομιλία ανάμεσα στον δημιουργό και σε αυτόν που επιλέξει να το φορέσει, ένα μικρό αντικείμενο που κάποιος το διαλέγει και του δίνει νόημα. Η διαδικασία είναι εξ\' ολοκλήρου χειροποίητη με τα κοσμήματα να είναι σχεδιασμένα και κατασκευασμένα στο χέρι. Επιλέγουμε να δημιουργούμε μοναδικά κομμάτια ή περιορισμένες ποσότητες γιατί η μαζική παραγωγή δεν μπορεί να εξασφαλίσει την ουσία που αναζητούμε. Κάθε κομμάτι μεταφέρει τη δική του ιστορία, όχι μια ιστορία που του επιβάλλουμε εμείς, αλλά μια που επιλέγει ο πελάτης μας να ζήσει μαζί του. Δουλεύουμε με χρώματα που παράγουν συναισθήματα, τη ζεστασιά του κεχριμπαριού στο δέρμα, την ηρεμία της τυρκουάζ, τη δύναμη του βαθύ μωβ. Δημιουργούμε κοσμήματα που φοριούνται κάθε μέρα, στιγμές διακριτικής ομορφιάς, αντικείμενα που γίνονται πιο σημαντικά όσο περνά ο καιρός. Το κόσμημά μας δεν ζητάει τίποτα από αυτόν που το φοράει παρά μόνο ειλικρίνεια, τη θέληση να επιλέξει κάτι που του κάνει νόημα, που το νιώθει αληθινό. Η τέχνη που δημιουργούμε γεννιέται από μια απλή φιλοσοφία, ότι η ομορφιά και η σκόπιμη δημιουργία ανήκουν στις στιγμές που ζούμε κάθε μέρα.',
                 heroSubtitle: 'Στούντιο Κοσμημάτων που Λένε Ιστορία',
                 collectionsTitle: 'Συλλογές',
                 contactTitle: 'Επικοινωνήστε',
-                contactText: 'Βιώστε τη συλλογή μας προσωπικά. Προγραμματίστε μια ιδιωτική προβολή ή συμβουλευτική.'
+                contactText: 'Βιώστε τη συλλογή μας προσωπικά. Προγραμματίστε μια ιδιωτική προβολή ή συμβουλευτική.',
+                earrings: 'Σκουλαρίκια',
+                pendants: 'Κολιέ',
+                bracelets: 'Βραχιόλια',
+                rings: 'Δαχτυλίδια',
+                homeDeco: 'Γλυπτά Χώρου'
             }
         };
 
@@ -785,12 +900,26 @@
         function updateLanguage() {
             const t = translations[currentLanguage];
             
+            // Update navigation tabs
+            document.getElementById('nav-link-home').textContent = t.navHome;
+            document.getElementById('nav-link-about').textContent = t.navAbout;
+            document.getElementById('nav-link-collections').textContent = t.navCollections;
+            document.getElementById('nav-link-contact').textContent = t.navContact;
+            
+            // Update section content
             document.getElementById('aboutTitle').textContent = t.aboutTitle;
             document.getElementById('aboutContent').textContent = t.aboutContent;
             document.getElementById('heroSubtitle').textContent = t.heroSubtitle;
             document.getElementById('collectionsTitle').textContent = t.collectionsTitle;
             document.getElementById('contactTitle').textContent = t.contactTitle;
             document.getElementById('contactText').textContent = t.contactText;
+            
+            // Update collection category buttons
+            document.getElementById('btn-earrings').textContent = t.earrings;
+            document.getElementById('btn-pendants').textContent = t.pendants;
+            document.getElementById('btn-bracelets').textContent = t.bracelets;
+            document.getElementById('btn-rings').textContent = t.rings;
+            document.getElementById('btn-home-deco').textContent = t.homeDeco;
         }
     </script>
 </body>
