@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRINA NOLAZ - Artisan Jewelry Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f0;
+            color: #2c2c2c;
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #f5f5f0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #d4a574;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .logo.hidden {
+            opacity: 0;
+            pointer-events: none;
+            width: 0;
+            gap: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #d4a574;
+        }
+
+        .language-toggle {
+            cursor: pointer;
+            font-size: 14px;
+            color: #2c2c2c;
+            background: none;
+            border: 1px solid #d4a574;
+            padding: 8px 15px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .language-toggle:hover {
+            background: #d4a574;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #8080ff 0%, #7070e8 100%);
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .sun-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 150px;
+        }
+
+        /* Sun with refined glow */
+        .sun {
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle at 35% 35%, #FDD76E, #F9C956, #E8A844);
+            border-radius: 50%;
+            box-shadow: 0 0 60px rgba(220, 180, 120, 0.35),
+                        0 0 90px rgba(200, 150, 90, 0.2),
+                        inset -25px -25px 50px rgba(0, 0, 0, 0.1);
+            animation: subtleGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes subtleGlow {
+            0% {
+                box-shadow: 0 0 60px rgba(220, 180, 120, 0.35),
+                            0 0 90px rgba(200, 150, 90, 0.2),
+                            inset -25px -25px 50px rgba(0, 0, 0, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 75px rgba(220, 180, 120, 0.45),
+                            0 0 110px rgba(200, 150, 90, 0.28),
+                            inset -25px -25px 50px rgba(0, 0, 0, 0.1);
+            }
+            100% {
+                box-shadow: 0 0 60px rgba(220, 180, 120, 0.35),
+                            0 0 90px rgba(200, 150, 90, 0.2),
+                            inset -25px -25px 50px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 400;
+            letter-spacing: 12px;
+            margin-bottom: 40px;
+            text-shadow: none;
+            font-family: 'Playfair Display', 'Georgia', serif;
+            color: black;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            opacity: 0.95;
+            color: black;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* About Section */
+        .about {
+            flex-direction: column;
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            min-height: 100vh;
+            background: white;
+            margin-top: 70px;
+        }
+
+        .about h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: #2c2c2c;
+            font-weight: 300;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .about p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Collections Section */
+        .collections {
+            flex-direction: column;
+            background: #f0f0f0;
+            padding: 80px 40px;
+            min-height: 100vh;
+            margin-top: 70px;
+        }
+
+        .collections h2 {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #2c2c2c;
+            font-weight: 300;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .collection-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .collection-item {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, cursor 0.3s ease;
+            cursor: pointer;
+        }
+
+        .collection-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .collection-item h3 {
+            font-size: 22px;
+            margin: 20px 0 10px;
+            color: #2c2c2c;
+            font-weight: 400;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .collection-item p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .collection-item .view-link {
+            display: inline-block;
+            color: #d4a574;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 250px;
+            background: #e8e8e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        /* Exhibitions Section */
+        .exhibitions {
+            flex-direction: column;
+            background: white;
+            padding: 80px 40px;
+            min-height: 100vh;
+            margin-top: 70px;
+        }
+
+        .exhibitions h2 {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #2c2c2c;
+            font-weight: 300;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .exhibitions-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .exhibition-card {
+            background: #f5f5f0;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .exhibition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.15);
+            border-color: #d4a574;
+        }
+
+        .exhibition-card h3 {
+            font-size: 22px;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .exhibition-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Jewelry Detail Section */
+        .jewelry-detail {
+            flex-direction: column;
+            padding: 80px 40px;
+            background: white;
+            min-height: 100vh;
+            margin-top: 70px;
+        }
+
+        .detail-header {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+
+        .back-button {
+            color: #d4a574;
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+            margin-bottom: 40px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .back-button:hover {
+            color: #c49460;
+        }
+
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .detail-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .detail-image {
+            width: 100%;
+            height: 500px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 180px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .nav-arrow {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 28px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            padding: 0;
+        }
+
+        .nav-arrow:hover {
+            color: #d4a574;
+        }
+
+        .image-counter {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .jewelry-price {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            margin-top: 25px;
+            font-weight: 400;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .detail-info h1 {
+            font-size: 42px;
+            color: #2c2c2c;
+            font-weight: 400;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', 'Georgia', serif;
+        }
+
+        .detail-info p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .detail-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .detail-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .detail-section h3 {
+            font-size: 14px;
+            color: #999;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .detail-section p {
+            font-size: 16px;
+            color: #2c2c2c;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .inquiry-button {
+            background: #d4a574;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 3px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 2px;
+            width: 100%;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .inquiry-button:hover {
+            background: #c49460;
+        }
+
+        /* Contact Section */
+        .contact {
+            flex-direction: column;
+            padding: 80px 40px;
+            background: white;
+            min-height: 100vh;
+            margin-top: 70px;
+        }
+
+        .contact h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+            font-weight: 300;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact > p {
+            font-size: 16px;
+            margin-bottom: 60px;
+            color: #666;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: #d4a574;
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .contact-card h3 {
+            font-size: 18px;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-card p {
+            font-size: 15px;
+            color: #d4a574;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            word-break: break-all;
+        }
+
+        .contact-card a {
+            color: #d4a574;
+            text-decoration: none;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #c49460;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 12px 40px;
+            background: #d4a574;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .contact-button:hover {
+            background: #c49460;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .detail-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 12px;
+                order: 3;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .logo {
+                font-size: 12px;
+                gap: 8px;
+            }
+
+            .logo img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .about, .collections, .contact, .exhibitions {
+                padding: 40px 20px;
+            }
+
+            .detail-image {
+                height: 350px;
+                font-size: 120px;
+            }
+
+            .detail-info h1 {
+                font-size: 32px;
+            }
+
+            .hero {
+                margin-top: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" id="navLogo">
+            <img src="logo.png" alt="IRINA NOLAZ Logo">
+            <span>IRINA NOLAZ</span>
+        </div>
+        <ul class="nav-links">
+            <li><a onclick="showSection('home')">HOME</a></li>
+            <li><a onclick="showSection('about')">ABOUT</a></li>
+            <li><a onclick="showSection('collections')">COLLECTIONS</a></li>
+            <li><a onclick="showSection('exhibitions')">EXHIBITIONS</a></li>
+            <li><a onclick="showSection('contact')">CONTACT</a></li>
+        </ul>
+        <button class="language-toggle">EL / EN</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero active" id="home">
+        <div class="sun-container">
+            <div class="sun"></div>
+        </div>
+        <div class="hero-text">
+            <h1>IRINA NOLAZ</h1>
+            <p>Artisan Handmade Jewelry</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>Each piece is meticulously crafted with passion and attention to detail. Our jewelry celebrates the beauty of natural gemstones and the artistry of handmade creation.</p>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="collections" id="collections">
+        <h2>Collections</h2>
+        <div class="collection-grid">
+            <div class="collection-item" onclick="openJewelryDetail(0)">
+                <div class="collection-image">💍</div>
+                <h3>Elegance Ring</h3>
+                <p>Timeless sophistication</p>
+                <span class="view-link">VIEW COLLECTION →</span>
+            </div>
+            <div class="collection-item" onclick="openJewelryDetail(1)">
+                <div class="collection-image">💎</div>
+                <h3>Sapphire Bracelet</h3>
+                <p>Luxurious elegance</p>
+                <span class="view-link">VIEW COLLECTION →</span>
+            </div>
+            <div class="collection-item" onclick="openJewelryDetail(2)">
+                <div class="collection-image">📿</div>
+                <h3>Rose Gold Necklace</h3>
+                <p>Modern beauty</p>
+                <span class="view-link">VIEW COLLECTION →</span>
+            </div>
+            <div class="collection-item" onclick="openJewelryDetail(3)">
+                <div class="collection-image">✨</div>
+                <h3>Diamond Earrings</h3>
+                <p>Sparkling radiance</p>
+                <span class="view-link">VIEW COLLECTION →</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibitions Section -->
+    <section class="exhibitions" id="exhibitions">
+        <h2>Exhibitions</h2>
+        <div class="exhibitions-grid">
+            <div class="exhibition-card">
+                <h3>Luxury Gems Showcase 2024</h3>
+                <p>March 15-30, 2024</p>
+                <p>Athens Contemporary Gallery</p>
+            </div>
+            <div class="exhibition-card">
+                <h3>Modern Elegance Collection</h3>
+                <p>April 5-20, 2024</p>
+                <p>Thessaloniki Design Hub</p>
+            </div>
+            <div class="exhibition-card">
+                <h3>Artisan Craftsmanship</h3>
+                <p>May 10-25, 2024</p>
+                <p>National Museum of Athens</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jewelry Detail Section -->
+    <section class="jewelry-detail" id="jewelryDetail">
+        <div class="detail-header">
+            <button class="back-button" onclick="showSection('collections')">← BACK TO COLLECTIONS</button>
+        </div>
+        <div class="detail-container">
+            <div class="detail-gallery">
+                <div class="detail-image" id="jewelryImage">💍</div>
+                <div class="gallery-nav">
+                    <button class="nav-arrow" onclick="prevImage()">←</button>
+                    <span class="image-counter" id="imageCounter">1 / 5</span>
+                    <button class="nav-arrow" onclick="nextImage()">→</button>
+                </div>
+                <div class="jewelry-price" id="jewelryPrice">€2,450</div>
+            </div>
+            <div class="detail-info">
+                <h1 id="jewelryTitle">Elegance Ring</h1>
+                <p id="jewelryDescription">A timeless piece of sophistication.</p>
+
+                <div class="detail-section">
+                    <h3>Collection Details</h3>
+                    <p id="jewelryCollection">2024 Classic Collection</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Materials & Specifications</h3>
+                    <p id="jewelryMaterials">14K Gold, Diamond 0.5ct</p>
+                </div>
+
+                <button class="inquiry-button">INQUIRE NOW</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Reach Out</h2>
+        <p>Experience our collection in person. Schedule a private viewing or consultation.</p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Email</h3>
+                <a href="mailto:info@irinanolaz.com">info@irinanolaz.com</a>
+            </div>
+            <div class="contact-card">
+                <h3>Instagram</h3>
+                <a href="https://instagram.com/irinanolaz" target="_blank">@irinanolaz</a>
+            </div>
+            <div class="contact-card">
+                <h3>Schedule</h3>
+                <button class="contact-button" onclick="alert('Schedule functionality coming soon!')">Schedule Now</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                home: 'HOME',
+                about: 'ABOUT',
+                collections: 'COLLECTIONS',
+                exhibitions: 'EXHIBITIONS',
+                contact: 'CONTACT',
+                aboutTitle: 'About Us',
+                aboutText: 'Each piece is meticulously crafted with passion and attention to detail. Our jewelry celebrates the beauty of natural gemstones and the artistry of handmade creation.',
+                collectionsTitle: 'Collections',
+                eleganceRing: 'Elegance Ring',
+                eleganceDesc: 'Timeless sophistication',
+                sapphireBracelet: 'Sapphire Bracelet',
+                sapphireDesc: 'Luxurious elegance',
+                roseGoldNecklace: 'Rose Gold Necklace',
+                roseGoldDesc: 'Modern beauty',
+                diamondEarrings: 'Diamond Earrings',
+                diamondDesc: 'Sparkling radiance',
+                viewCollection: 'VIEW COLLECTION →',
+                backToCollections: '← BACK TO COLLECTIONS',
+                collectionDetails: 'Collection Details',
+                materialsSpecs: 'Materials & Specifications',
+                inquireNow: 'INQUIRE NOW',
+                exhibitionsTitle: 'Exhibitions',
+                contactTitle: 'Reach Out',
+                contactText: 'Experience our collection in person. Schedule a private viewing or consultation.',
+                email: 'Email',
+                instagram: 'Instagram',
+                schedule: 'Schedule',
+                scheduleBtn: 'Schedule Now',
+                heroSubtitle: 'Artisan Handmade Jewelry',
+                exhibition1: 'Luxury Gems Showcase 2024',
+                exhibition1Date: 'March 15-30, 2024',
+                exhibition1Venue: 'Athens Contemporary Gallery',
+                exhibition2: 'Modern Elegance Collection',
+                exhibition2Date: 'April 5-20, 2024',
+                exhibition2Venue: 'Thessaloniki Design Hub',
+                exhibition3: 'Artisan Craftsmanship',
+                exhibition3Date: 'May 10-25, 2024',
+                exhibition3Venue: 'National Museum of Athens'
+            },
+            gr: {
+                home: 'ΑΡΧΙΚΗ',
+                about: 'ΣΧΕΤΙΚΑ',
+                collections: 'ΣΥΛΛΟΓΕΣ',
+                exhibitions: 'ΕΚΘΕΣΕΙΣ',
+                contact: 'ΕΠΙΚΟΙΝΩΝΙΑ',
+                aboutTitle: 'Σχετικά με εμάς',
+                aboutText: 'Κάθε κομμάτι δημιουργείται με πάθος και προσοχή στη λεπτομέρεια. Τα κοσμήματά μας γιορτάζουν την ομορφιά των φυσικών πολύτιμων λίθων και την τέχνη της χειροποίητης δημιουργίας.',
+                collectionsTitle: 'Συλλογές',
+                eleganceRing: 'Δακτυλίδι Κομψότητας',
+                eleganceDesc: 'Διαχρονική κομψότητα',
+                sapphireBracelet: 'Βραχιόλι Σαφίρι',
+                sapphireDesc: 'Πολυτελής κομψότητα',
+                roseGoldNecklace: 'Κολιέ Ροζ Χρυσού',
+                roseGoldDesc: 'Σύγχρονη ομορφιά',
+                diamondEarrings: 'Σκουλαρίκια με Διαμάντια',
+                diamondDesc: 'Λαμπρότητα που αστράφτει',
+                viewCollection: 'ΠΡΟΒΟΛΗ ΣΥΛΛΟΓΗΣ →',
+                backToCollections: '← ΕΠΙΣΤΡΟΦΗ ΣΤΙ ΣΥΛΛΟΓΕΣ',
+                collectionDetails: 'Λεπτομέρειες Συλλογής',
+                materialsSpecs: 'Υλικά & Προδιαγραφές',
+                inquireNow: 'ΖΗΤΗΣΗ ΠΛΗΡΟΦΟΡΙΩΝ',
+                exhibitionsTitle: 'Εκθέσεις',
+                contactTitle: 'Επικοινωνήστε',
+                contactText: 'Βιώστε τη συλλογή μας προσωπικά. Προγραμματίστε μια ιδιωτική προβολή ή συμβουλευτική.',
+                email: 'Email',
+                instagram: 'Instagram',
+                schedule: 'Ραντεβού',
+                scheduleBtn: 'Προγραμματίστε Τώρα',
+                heroSubtitle: 'Χειροποίητα Κοσμήματα',
+                exhibition1: 'Έκθεση Πολυτελών Πολύτιμων Λίθων 2024',
+                exhibition1Date: '15-30 Μαρτίου 2024',
+                exhibition1Venue: 'Σύγχρονη Γκαλερί Αθήνας',
+                exhibition2: 'Συλλογή Σύγχρονης Κομψότητας',
+                exhibition2Date: '5-20 Απριλίου 2024',
+                exhibition2Venue: 'Κέντρο Σχεδιασμού Θεσσαλονίκης',
+                exhibition3: 'Χειροτεχνία Τεχνιτών',
+                exhibition3Date: '10-25 Μαΐου 2024',
+                exhibition3Venue: 'Εθνικό Μουσείο Αθηνών'
+            }
+        };
+
+        // Jewelry data with multiple photos
+        const jewelryItems = [
+            {
+                titleEn: 'Elegance Ring',
+                titleGr: 'Δακτυλίδι Κομψότητας',
+                descriptionEn: 'A timeless piece of sophistication. This stunning ring combines classic design with modern elegance, perfect for any occasion. Handcrafted with precision and attention to detail.',
+                descriptionGr: 'Ένα διαχρονικό κομμάτι κομψότητας. Αυτό το εκπληκτικό δακτυλίδι συνδυάζει κλασικό σχεδιασμό με σύγχρονη κομψότητα, ιδανικό για κάθε περίσταση. Χειροποίητο με ακρίβεια και προσοχή στη λεπτομέρεια.',
+                materials: '14K Gold, Diamond 0.5ct',
+                collectionEn: '2024 Classic Collection',
+                collectionGr: '2024 Κλασική Συλλογή',
+                price: '€2,450',
+                photos: ['💍', '✨', '🌟', '💎', '👑']
+            },
+            {
+                titleEn: 'Sapphire Bracelet',
+                titleGr: 'Βραχιόλι Σαφίρι',
+                descriptionEn: 'Luxurious elegance meets contemporary style. This exquisite bracelet features premium sapphires set in white gold, creating an unforgettable statement piece.',
+                descriptionGr: 'Πολυτελής κομψότητα συναντά σύγχρονο στυλ. Αυτό το εξαιρετικό βραχιόλι διαθέτει εξαιρετικά σαφίρια σε λευκό χρυσό, δημιουργώντας έναν αφής στολίδι.',
+                materials: 'White Gold, Sapphire 2ct',
+                collectionEn: '2024 Luxury Collection',
+                collectionGr: '2024 Συλλογή Πολυτέλειας',
+                price: '€3,850',
+                photos: ['💎', '💙', '✨', '🌟', '👑']
+            },
+            {
+                titleEn: 'Rose Gold Necklace',
+                titleGr: 'Κολιέ Ροζ Χρυσού',
+                descriptionEn: 'Modern beauty in its purest form. This rose gold necklace features an elegant pendant with diamond accents, designed to complement any wardrobe.',
+                descriptionGr: 'Σύγχρονη ομορφιά στην πιο καθαρή της μορφή. Αυτό το κολιέ ροζ χρυσού διαθέτει ένα κομψό κρεμαστό με διαμαντένια στολίδια, σχεδιασμένο να συμπληρώσει οποιαδήποτε ντουλάπα.',
+                materials: 'Rose Gold, Diamond 0.75ct',
+                collectionEn: '2024 Modern Collection',
+                collectionGr: '2024 Σύγχρονη Συλλογή',
+                price: '€2,950',
+                photos: ['📿', '💗', '✨', '🌟', '📫']
+            },
+            {
+                titleEn: 'Diamond Earrings',
+                titleGr: 'Σκουλαρίκια με Διαμάντια',
+                descriptionEn: 'Sparkling radiance that catches every light. These classic diamond earrings are a staple of any jewelry collection, offering timeless elegance.',
+                descriptionGr: 'Λαμπρότητα που αστράφτει σε κάθε φως. Αυτά τα κλασικά σκουλαρίκια με διαμάντια είναι ένα κύριο στοιχείο κάθε συλλογής κοσμημάτων, προσφέροντας διαχρονική κομψότητα.',
+                materials: 'Platinum, Diamond 1ct total',
+                collectionEn: '2024 Premium Collection',
+                collectionGr: '2024 Ανώτερη Συλλογή',
+                price: '€4,200',
+                photos: ['✨', '💎', '🌟', '👑', '📫']
+            }
+        ];
+
+        let currentLanguage = 'en';
+        let currentJewelry = 0;
+        let currentPhoto = 0;
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            updateAllText();
+            document.querySelector('.language-toggle').textContent = lang === 'en' ? 'EL / EN' : 'ΕΛ / EN';
+        }
+
+        function updateAllText() {
+            const t = translations[currentLanguage];
+            
+            // Update navigation
+            document.querySelectorAll('.nav-links a').forEach((link, index) => {
+                const keys = ['home', 'about', 'collections', 'exhibitions', 'contact'];
+                link.textContent = t[keys[index]];
+            });
+
+            // Update sections
+            document.querySelector('#about h2').textContent = t.aboutTitle;
+            document.querySelector('#about p').textContent = t.aboutText;
+            document.querySelector('#collections h2').textContent = t.collectionsTitle;
+            document.querySelector('#contact h2').textContent = t.contactTitle;
+            document.querySelector('#contact > p').textContent = t.contactText;
+            document.querySelector('#exhibitions h2').textContent = t.exhibitionsTitle;
+            document.querySelector('.hero p').textContent = t.heroSubtitle;
+
+            // Update collection items
+            const items = [
+                { title: 'eleganceRing', desc: 'eleganceDesc' },
+                { title: 'sapphireBracelet', desc: 'sapphireDesc' },
+                { title: 'roseGoldNecklace', desc: 'roseGoldDesc' },
+                { title: 'diamondEarrings', desc: 'diamondDesc' }
+            ];
+            
+            document.querySelectorAll('.collection-item').forEach((item, index) => {
+                item.querySelector('h3').textContent = currentLanguage === 'en' ? jewelryItems[index].titleEn : jewelryItems[index].titleGr;
+                item.querySelector('p').textContent = t[items[index].desc];
+                item.querySelector('.view-link').textContent = t.viewCollection;
+            });
+
+            // Update detail page buttons and labels
+            document.querySelector('.back-button').textContent = t.backToCollections;
+            document.querySelectorAll('.detail-section h3')[0].textContent = t.collectionDetails;
+            document.querySelectorAll('.detail-section h3')[1].textContent = t.materialsSpecs;
+            document.querySelector('.inquiry-button').textContent = t.inquireNow;
+
+            // Update contact cards
+            document.querySelectorAll('.contact-card h3').forEach((card, index) => {
+                const labels = [t.email, t.instagram, t.schedule];
+                card.textContent = labels[index];
+            });
+            document.querySelector('.contact-button').textContent = t.scheduleBtn;
+
+            // Update exhibitions
+            const exhItems = document.querySelectorAll('.exhibition-card');
+            if (exhItems.length >= 3) {
+                exhItems[0].querySelector('h3').textContent = t.exhibition1;
+                exhItems[0].querySelectorAll('p')[0].textContent = t.exhibition1Date;
+                exhItems[0].querySelectorAll('p')[1].textContent = t.exhibition1Venue;
+                
+                exhItems[1].querySelector('h3').textContent = t.exhibition2;
+                exhItems[1].querySelectorAll('p')[0].textContent = t.exhibition2Date;
+                exhItems[1].querySelectorAll('p')[1].textContent = t.exhibition2Venue;
+                
+                exhItems[2].querySelector('h3').textContent = t.exhibition3;
+                exhItems[2].querySelectorAll('p')[0].textContent = t.exhibition3Date;
+                exhItems[2].querySelectorAll('p')[1].textContent = t.exhibition3Venue;
+            }
+
+            // Update detail page if visible
+            if (document.getElementById('jewelryDetail').classList.contains('active')) {
+                updateDetailPage();
+            }
+        }
+
+        function showSection(sectionId) {
+            // Update logo visibility
+            const logo = document.getElementById('navLogo');
+            if (sectionId === 'home') {
+                logo.classList.add('hidden');
+            } else {
+                logo.classList.remove('hidden');
+            }
+
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function openJewelryDetail(index) {
+            currentJewelry = index;
+            currentPhoto = 0;
+            updateDetailPage();
+            showSection('jewelryDetail');
+        }
+
+        function updateDetailPage() {
+            const item = jewelryItems[currentJewelry];
+            const title = currentLanguage === 'en' ? item.titleEn : item.titleGr;
+            const description = currentLanguage === 'en' ? item.descriptionEn : item.descriptionGr;
+            const collection = currentLanguage === 'en' ? item.collectionEn : item.collectionGr;
+            
+            document.getElementById('jewelryTitle').textContent = title;
+            document.getElementById('jewelryDescription').textContent = description;
+            document.getElementById('jewelryMaterials').textContent = item.materials;
+            document.getElementById('jewelryCollection').textContent = collection;
+            document.getElementById('jewelryImage').textContent = item.photos[currentPhoto];
+            document.getElementById('jewelryPrice').textContent = item.price;
+            document.getElementById('imageCounter').textContent = `${currentPhoto + 1} / ${item.photos.length}`;
+        }
+
+        function nextImage() {
+            const item = jewelryItems[currentJewelry];
+            currentPhoto = (currentPhoto + 1) % item.photos.length;
+            updateDetailPage();
+        }
+
+        function prevImage() {
+            const item = jewelryItems[currentJewelry];
+            currentPhoto = (currentPhoto - 1 + item.photos.length) % item.photos.length;
+            updateDetailPage();
+        }
+
+        // Language toggle
+        document.querySelector('.language-toggle').addEventListener('click', function() {
+            setLanguage(currentLanguage === 'en' ? 'gr' : 'en');
+        });
+    </script>
+</body>
+</html>
