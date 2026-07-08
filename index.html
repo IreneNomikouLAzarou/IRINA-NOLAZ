@@ -230,117 +230,131 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .collection-grid {
+        .collection-categories {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
-        .collection-item {
+        .category-button {
             background: white;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, cursor 0.3s ease;
             cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c2c2c;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .collection-item:hover {
+        .category-button:hover {
+            border-color: #d4a574;
             transform: translateY(-5px);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .collection-item h3 {
-            font-size: 22px;
-            margin: 20px 0 10px;
-            color: #2c2c2c;
-            font-weight: 400;
-            font-family: 'Poppins', sans-serif;
+        .category-button.active {
+            border-color: #d4a574;
+            background: #faf8f5;
         }
 
-        .collection-item p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 20px;
-            font-family: 'Poppins', sans-serif;
+        /* Pieces Container */
+        .collection-pieces {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: none;
+            flex-direction: column;
+            gap: 60px;
         }
 
-        .collection-item .view-link {
-            display: inline-block;
-            color: #d4a574;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-top: 10px;
-            font-family: 'Poppins', sans-serif;
+        .collection-pieces.active {
+            display: flex;
         }
 
-        .collection-image {
+        .piece {
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .piece-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .piece-images {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .piece-main-image {
             width: 100%;
-            height: 250px;
+            height: 400px;
             background: #e8e8e8;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
-            margin-bottom: 20px;
-            border-radius: 4px;
+            font-size: 80px;
         }
 
-        /* Exhibitions Section */
-        .exhibitions {
+        .piece-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .arrow-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #d4a574;
+            transition: color 0.3s ease;
+            padding: 5px 10px;
+        }
+
+        .arrow-btn:hover {
+            color: #c49460;
+        }
+
+        .piece-info {
+            display: flex;
             flex-direction: column;
-            background: white;
-            padding: 80px 40px;
-            min-height: 100vh;
-            margin-top: 70px;
         }
 
-        .exhibitions h2 {
-            font-size: 42px;
-            text-align: center;
-            margin-bottom: 60px;
+        .piece-title {
+            font-size: 24px;
+            font-weight: 700;
             color: #2c2c2c;
-            font-weight: 300;
             font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
         }
 
-        .exhibitions-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .exhibition-card {
-            background: #f5f5f0;
-            padding: 40px 30px;
-            text-align: center;
-            border: 1px solid #e0e0e0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .exhibition-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.15);
-            border-color: #d4a574;
-        }
-
-        .exhibition-card h3 {
-            font-size: 22px;
-            color: #2c2c2c;
-            margin-bottom: 20px;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .exhibition-card p {
+        .piece-material {
             font-size: 14px;
+            font-weight: 400;
             color: #666;
-            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 30px;
+        }
+
+        .piece-price {
+            font-size: 20px;
+            font-weight: 600;
+            color: #d4a574;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -473,8 +487,12 @@
                 font-size: 14px;
             }
 
-            .about, .collections, .contact, .exhibitions {
+            .about, .collections, .contact {
                 padding: 40px 20px;
+            }
+
+            .piece-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -489,7 +507,6 @@
             <li><a onclick="showSection('home')">HOME</a></li>
             <li><a onclick="showSection('about')">ABOUT</a></li>
             <li><a onclick="showSection('collections')">COLLECTIONS</a></li>
-            <li><a onclick="showSection('exhibitions')">EXHIBITIONS</a></li>
             <li><a onclick="showSection('contact')">CONTACT</a></li>
         </ul>
         <button class="language-toggle" onclick="toggleLanguage()">EL / EN</button>
@@ -515,52 +532,159 @@
     <!-- Collections Section -->
     <section class="collections" id="collections">
         <h2 id="collectionsTitle">Collections</h2>
-        <div class="collection-grid">
-            <div class="collection-item">
-                <div class="collection-image">💍</div>
-                <h3>Elegance Ring</h3>
-                <p>Timeless sophistication</p>
-                <span class="view-link">VIEW COLLECTION →</span>
+        
+        <div class="collection-categories">
+            <button class="category-button active" onclick="selectCategory('earrings')">Earrings</button>
+            <button class="category-button" onclick="selectCategory('pendants')">Pendants</button>
+            <button class="category-button" onclick="selectCategory('bracelets')">Bracelets</button>
+            <button class="category-button" onclick="selectCategory('rings')">Rings</button>
+        </div>
+
+        <div class="collection-pieces active" id="earrings-pieces">
+            <div class="piece">
+                <div class="piece-content">
+                    <div class="piece-images">
+                        <div class="piece-main-image" id="earrings-img-0">💎</div>
+                        <div class="piece-navigation">
+                            <button class="arrow-btn" onclick="prevImage('earrings', 0)">←</button>
+                            <span id="earrings-counter-0">1 / 3</span>
+                            <button class="arrow-btn" onclick="nextImage('earrings', 0)">→</button>
+                        </div>
+                    </div>
+                    <div class="piece-info">
+                        <div class="piece-title">Starlight Earrings</div>
+                        <div class="piece-material">18K Gold, Freshwater Pearls, Enamel</div>
+                        <div class="piece-price">€450</div>
+                    </div>
+                </div>
             </div>
-            <div class="collection-item">
-                <div class="collection-image">💎</div>
-                <h3>Sapphire Bracelet</h3>
-                <p>Luxurious elegance</p>
-                <span class="view-link">VIEW COLLECTION →</span>
-            </div>
-            <div class="collection-item">
-                <div class="collection-image">📿</div>
-                <h3>Rose Gold Necklace</h3>
-                <p>Modern beauty</p>
-                <span class="view-link">VIEW COLLECTION →</span>
-            </div>
-            <div class="collection-item">
-                <div class="collection-image">✨</div>
-                <h3>Diamond Earrings</h3>
-                <p>Sparkling radiance</p>
-                <span class="view-link">VIEW COLLECTION →</span>
+            <div class="piece">
+                <div class="piece-content">
+                    <div class="piece-images">
+                        <div class="piece-main-image" id="earrings-img-1">✨</div>
+                        <div class="piece-navigation">
+                            <button class="arrow-btn" onclick="prevImage('earrings', 1)">←</button>
+                            <span id="earrings-counter-1">1 / 3</span>
+                            <button class="arrow-btn" onclick="nextImage('earrings', 1)">→</button>
+                        </div>
+                    </div>
+                    <div class="piece-info">
+                        <div class="piece-title">Azure Dream Earrings</div>
+                        <div class="piece-material">Silver, Turquoise, Hand-inlaid Mosaic</div>
+                        <div class="piece-price">€380</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Exhibitions Section -->
-    <section class="exhibitions" id="exhibitions">
-        <h2 id="exhibitionsTitle">Exhibitions</h2>
-        <div class="exhibitions-grid">
-            <div class="exhibition-card">
-                <h3>Luxury Gems Showcase 2024</h3>
-                <p>March 15-30, 2024</p>
-                <p>Athens Contemporary Gallery</p>
+        <div class="collection-pieces" id="pendants-pieces">
+            <div class="piece">
+                <div class="piece-content">
+                    <div class="piece-images">
+                        <div class="piece-main-image" id="pendants-img-0">🌿</div>
+                        <div class="piece-navigation">
+                            <button class="arrow-btn" onclick="prevImage('pendants', 0)">←</button>
+                            <span id="pendants-counter-0">1 / 3</span>
+                            <button class="arrow-btn" onclick="nextImage('pendants', 0)">→</button>
+                        </div>
+                    </div>
+                    <div class="piece-info">
+                        <div class="piece-title">Nature's Whisper Pendant</div>
+                        <div class="piece-material">Silver, Resin, Pressed Flowers, Amber</div>
+                        <div class="piece-price">€520</div>
+                    </div>
+                </div>
             </div>
-            <div class="exhibition-card">
-                <h3>Modern Elegance Collection</h3>
-                <p>April 5-20, 2024</p>
-                <p>Thessaloniki Design Hub</p>
+            <div class="piece">
+                <div class="piece-content">
+                    <div class="piece-images">
+                        <div class="piece-main-image" id="pendants-img-1">🌙</div>
+                        <div class="piece-navigation">
+                            <button class="arrow-btn" onclick="prevImage('pendants', 1)">←</button>
+                            <span id="pendants-counter-1">1 / 3</span>
+                            <button class="arrow-btn" onclick="nextImage('pendants', 1)">→</button>
+                        </div>
+                    </div>
+                    <div class="piece-info">
+                        <div class="piece-title">Lunar Serenity Pendant</div>
+                        <div class="piece-material">18K Gold, Moonstone, Enamel</div>
+                        <div class="piece-price">€650</div>
+                    </div>
+                </div>
             </div>
-            <div class="exhibition-card">
-                <h3>Artisan Craftsmanship</h3>
-                <p>May 10-25, 2024</p>
-                <p>National Museum of Athens</p>
+        </div>
+
+        <div class="collection-pieces" id="bracelets-pieces">
+            <div class="piece">
+                <div class="piece-content">
+                    <div class="piece-images">
+                        <div class="piece-main-image" id="bracelets-img-0">🌊</div>
+                        <div class="piece-navigation">
+                            <button class="arrow-btn" onclick="prevImage('bracelets', 0)">←</button>
+                            <span id="bracelets-counter-0">1 / 3</span>
+                            <button class="arrow-btn" onclick="nextImage('bracelets', 0)">→</button>
+                        </div>
+                    </div>
+                    <div class="piece-info">
+                        <div class="piece-title">Ocean Waves Bracelet</div>
+                        <div class="piece-material">Silver, Turquoise, Semi-precious Stones</div>
+                        <div class="piece-price">€480</div>
+                    </div>
+                </div>
+            </div>
+            <div class="piece">
+                <div class="piece-content">
+                    <div class="piece-images">
+                        <div class="piece-main-image" id="bracelets-img-1">🌅</div>
+                        <div class="piece-navigation">
+                            <button class="arrow-btn" onclick="prevImage('bracelets', 1)">←</button>
+                            <span id="bracelets-counter-1">1 / 3</span>
+                            <button class="arrow-btn" onclick="nextImage('bracelets', 1)">→</button>
+                        </div>
+                    </div>
+                    <div class="piece-info">
+                        <div class="piece-title">Sunset Glow Bracelet</div>
+                        <div class="piece-material">18K Gold, Amber, Enamel Inlay</div>
+                        <div class="piece-price">€580</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="collection-pieces" id="rings-pieces">
+            <div class="piece">
+                <div class="piece-content">
+                    <div class="piece-images">
+                        <div class="piece-main-image" id="rings-img-0">💍</div>
+                        <div class="piece-navigation">
+                            <button class="arrow-btn" onclick="prevImage('rings', 0)">←</button>
+                            <span id="rings-counter-0">1 / 3</span>
+                            <button class="arrow-btn" onclick="nextImage('rings', 0)">→</button>
+                        </div>
+                    </div>
+                    <div class="piece-info">
+                        <div class="piece-title">Elegance Ring</div>
+                        <div class="piece-material">18K Gold, Sapphire, Diamond Accents</div>
+                        <div class="piece-price">€720</div>
+                    </div>
+                </div>
+            </div>
+            <div class="piece">
+                <div class="piece-content">
+                    <div class="piece-images">
+                        <div class="piece-main-image" id="rings-img-1">👑</div>
+                        <div class="piece-navigation">
+                            <button class="arrow-btn" onclick="prevImage('rings', 1)">←</button>
+                            <span id="rings-counter-1">1 / 3</span>
+                            <button class="arrow-btn" onclick="nextImage('rings', 1)">→</button>
+                        </div>
+                    </div>
+                    <div class="piece-info">
+                        <div class="piece-title">Regal Mosaic Ring</div>
+                        <div class="piece-material">Silver, Hand-inlaid Mosaic, Turquoise</div>
+                        <div class="piece-price">€395</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -594,7 +718,6 @@
                 aboutContent: 'Since 2012, IRINA NOLAZ Studio has been creating intentional jewelry that speaks to the soul. Each piece begins as an idea drawn from nature, a color palette, a shape, an emotion waiting to be captured in precious and semi-precious stones, silver, enamel, resin, and hand-inlaid mosaic. We believe that jewelry is not decoration it is a conversation between maker and wearer, a small object chosen to hold meaning. Our process is entirely handmade and hand-drawn. Every design, every line, every stone placement emerges from the artist\'s hand with intention and care. We create in small batches because mass production cannot hold the depth we seek. Each piece carries its own story—not one we impose, but one our clients choose to live with. We work with colors that generate feelings, the warmth of amber against skin, the calm of turquoise, the strength of deep indigo. We craft pieces for everyday wear, moments of quiet beauty, objects that grow more meaningful the longer you know them. Our jewelry asks nothing of its wearer except honesty, the willingness to choose something that resonates, that feels true. This is wearable art born from a simple belief, that beauty and intention belong in the moments we live through every day.',
                 heroSubtitle: 'Intentional Jewelry Studio',
                 collectionsTitle: 'Collections',
-                exhibitionsTitle: 'Exhibitions',
                 contactTitle: 'Reach Out',
                 contactText: 'Experience our collection in person. Schedule a private viewing or consultation.'
             },
@@ -603,7 +726,6 @@
                 aboutContent: 'Από το 2012 το Στούντιο IRINA NOLAZ δημιουργεί κοσμήματα που λένε μια ιστορία. Κάθε κομμάτι ξεκινάει ως σκέψη από τη φύση, μια παλέτα χρωμάτων, ένα σχήμα, ένα συναίσθημα που περιμένει να αποτυπωθεί μέσα από πολύτιμους και ημιπολύτιμους λίθους, ασήμι, σμάλτο, ρητίνη και χειροποίητα μικρά μωσαικά. Πιστεύουμε ότι το κόσμημα δεν είναι μόνο διακόσμηση, το αντιλαμβανόμαστε ως μια συνομιλία ανάμεσα στον δημιουργό και σε αυτόν που επιλέξει να το φορέσει, ένα μικρό αντικείμενο που κάποιος το διαλέγει και του δίνει νόημα. Η διαδικασία είναι εξ\' ολοκλήρου χειροποίητη με τα κοσμήματα να είναι σχεδιασμένα και κατασκευασμένα στο χέρι. Επιλέγουμε να δημιουργούμε μοναδικά κομμάτια ή περιορισμένες ποσότητες γιατί η μαζική παραγωγή δεν μπορεί να εξασφαλίσει την ουσία που αναζητούμε. Κάθε κομμάτι μεταφέρει τη δική του ιστορία, όχι μια ιστορία που του επιβάλλουμε εμείς, αλλά μια που επιλέγει ο πελάτης μας να ζήσει μαζί του. Δουλεύουμε με χρώματα που παράγουν συναισθήματα, τη ζεστασιά του κεχριμπαριού στο δέρμα, την ηρεμία της τυρκουάζ, τη δύναμη του βαθύ μωβ. Δημιουργούμε κοσμήματα που φοριούνται κάθε μέρα, στιγμές διακριτικής ομορφιάς, αντικείμενα που γίνονται πιο σημαντικά όσο περνά ο καιρός. Το κόσμημά μας δεν ζητάει τίποτα από αυτόν που το φοράει παρά μόνο ειλικρίνεια, τη θέληση να επιλέξει κάτι που του κάνει νόημα, που το νιώθει αληθινό. Η τέχνη που δημιουργούμε γεννιέται από μια απλή φιλοσοφία, ότι η ομορφιά και η σκόπιμη δημιουργία ανήκουν στις στιγμές που ζούμε κάθε μέρα.',
                 heroSubtitle: 'Στούντιο Κοσμημάτων που Λένε Ιστορία',
                 collectionsTitle: 'Συλλογές',
-                exhibitionsTitle: 'Εκθέσεις',
                 contactTitle: 'Επικοινωνήστε',
                 contactText: 'Βιώστε τη συλλογή μας προσωπικά. Προγραμματίστε μια ιδιωτική προβολή ή συμβουλευτική.'
             }
@@ -627,6 +749,34 @@
             }
         }
 
+        function selectCategory(category) {
+            document.querySelectorAll('.collection-pieces').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById(category + '-pieces').classList.add('active');
+
+            document.querySelectorAll('.category-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function nextImage(category, pieceIndex) {
+            const counter = document.getElementById(category + '-counter-' + pieceIndex);
+            const currentCount = parseInt(counter.textContent.split(' / ')[0]);
+            const total = parseInt(counter.textContent.split(' / ')[1]);
+            const nextCount = currentCount === total ? 1 : currentCount + 1;
+            counter.textContent = nextCount + ' / ' + total;
+        }
+
+        function prevImage(category, pieceIndex) {
+            const counter = document.getElementById(category + '-counter-' + pieceIndex);
+            const currentCount = parseInt(counter.textContent.split(' / ')[0]);
+            const total = parseInt(counter.textContent.split(' / ')[1]);
+            const prevCount = currentCount === 1 ? total : currentCount - 1;
+            counter.textContent = prevCount + ' / ' + total;
+        }
+
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'en' ? 'gr' : 'en';
             updateLanguage();
@@ -639,7 +789,6 @@
             document.getElementById('aboutContent').textContent = t.aboutContent;
             document.getElementById('heroSubtitle').textContent = t.heroSubtitle;
             document.getElementById('collectionsTitle').textContent = t.collectionsTitle;
-            document.getElementById('exhibitionsTitle').textContent = t.exhibitionsTitle;
             document.getElementById('contactTitle').textContent = t.contactTitle;
             document.getElementById('contactText').textContent = t.contactText;
         }
