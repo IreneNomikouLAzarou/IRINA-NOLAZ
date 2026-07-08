@@ -22,39 +22,15 @@
         /* Navigation */
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            gap: 40px;
             padding: 20px 40px;
             background: #f5f5f0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #d4a574;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .logo img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-
-        .logo.hidden {
-            opacity: 0;
-            pointer-events: none;
-            width: 0;
-            gap: 0;
         }
 
         .nav-links {
@@ -559,14 +535,11 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo" id="navLogo">
-            <img src="hq irina nolaz logo.png" alt="IRINA NOLAZ Logo" style="width: 100px; height: auto;">
-        </div>
         <ul class="nav-links">
-            <li><a onclick="showSection('home')" id="nav-link-home">HOME</a></li>
-            <li><a onclick="showSection('about')" id="nav-link-about">ABOUT</a></li>
-            <li><a onclick="showSection('collections')" id="nav-link-collections">COLLECTIONS</a></li>
-            <li><a onclick="showSection('contact')" id="nav-link-contact">CONTACT</a></li>
+            <li><a onclick="showSection('home')">HOME</a></li>
+            <li><a onclick="showSection('about')">ABOUT</a></li>
+            <li><a onclick="showSection('collections')">COLLECTIONS</a></li>
+            <li><a onclick="showSection('contact')">CONTACT</a></li>
         </ul>
         <button class="language-toggle" onclick="toggleLanguage()">EL / EN</button>
     </nav>
@@ -789,7 +762,7 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2 id="contactTitle">Reach Out</h2>
-        <p id="contactText">Experience our collection in person. Schedule a private viewing.</p>
+        <p id="contactText">Experience our collection in person. Schedule a private viewing or consultation.</p>
         <div class="contact-grid">
             <div class="contact-card">
                 <h3>Email</h3>
@@ -797,7 +770,7 @@
             </div>
             <div class="contact-card">
                 <h3>Instagram</h3>
-                <a href="https://instagram.com/irina_nolaz" target="_blank">@irina_nolaz</a>
+                <a href="https://instagram.com/irinanolaz" target="_blank">@irinanolaz</a>
             </div>
             <div class="contact-card">
                 <h3>Schedule</h3>
@@ -811,16 +784,12 @@
 
         const translations = {
             en: {
-                navHome: 'HOME',
-                navAbout: 'ABOUT',
-                navCollections: 'COLLECTIONS',
-                navContact: 'CONTACT',
                 aboutTitle: 'About Us',
                 aboutContent: 'Since 2012, IRINA NOLAZ Studio has been creating intentional jewelry that speaks to the soul. Each piece begins as an idea drawn from nature, a color palette, a shape, an emotion waiting to be captured in precious and semi-precious stones, silver, enamel, resin, and hand-inlaid mosaic. We believe that jewelry is not decoration it is a conversation between maker and wearer, a small object chosen to hold meaning. Our process is entirely handmade and hand-drawn. Every design, every line, every stone placement emerges from the artist\'s hand with intention and care. We create in small batches because mass production cannot hold the depth we seek. Each piece carries its own story—not one we impose, but one our clients choose to live with. We work with colors that generate feelings, the warmth of amber against skin, the calm of turquoise, the strength of deep indigo. We craft pieces for everyday wear, moments of quiet beauty, objects that grow more meaningful the longer you know them. Our jewelry asks nothing of its wearer except honesty, the willingness to choose something that resonates, that feels true. This is wearable art born from a simple belief, that beauty and intention belong in the moments we live through every day.',
                 heroSubtitle: 'Intentional Jewelry Studio',
                 collectionsTitle: 'Collections',
                 contactTitle: 'Reach Out',
-                contactText: 'Experience our collection in person. Schedule a private viewing.',
+                contactText: 'Experience our collection in person. Schedule a private viewing or consultation.',
                 earrings: 'Earrings',
                 pendants: 'Pendants',
                 bracelets: 'Bracelets',
@@ -828,18 +797,14 @@
                 homeDeco: 'Home Deco'
             },
             gr: {
-                navHome: 'ΑΡΧΙΚΗ',
-                navAbout: 'ΣΤΟΥΝΤΙΟ',
-                navCollections: 'ΣΥΛΛΟΓΕΣ',
-                navContact: 'ΕΠΙΚΟΙΝΩΝΙΑ',
                 aboutTitle: 'Σχετικά με εμάς',
-                aboutContent: 'Από το 2012 το Στούντιο IRINA NOLAZ δημιουργεί κοσμήματα που λένε μια ιστορία. Κάθε κομμάτι ξεκινάει ως σκέψη από τη φύση, μια παλέτα χρωμάτων, ένα σχήμα, ένα συναίσθημα που περιμένει να αποτυπωθεί μέσα από πολύτιμους και ημιπολύτιμους λίθους, ασήμι, σμάλτο, ρητίνη και χειροποίητα μικρά μωσαικά. Πιστεύουμε ότι το κόσμημα δεν είναι μόνο διακόσμηση, το αντιλαμβανόμαστε ως μια συνομιλία ανάμεσα στον δημιουργό και σε αυτόν που επιλέξει να το φορέσει, ένα μικρό αντικείμενο που κάποιος το διαλέγει και του δίνει νόημα. Η διαδικασία είναι εξ\' ολοκλήρου χειροποίητη με τα κοσμήματα να είναι σχεδιασμένα και κατασκευασμένα στο χέρι. Επιλέγουμε να δημιουργούμε μοναδικά κομμάτια ή περιορισμένες ποσότητες γιατί η μαζική παραγωγή δεν μπορεί να εξασφαλίσει την ουσία που αναζητούμε. Κάθε κομμάτι μεταφέρει τη δική του ιστορία, όχι μια ιστορία που του επιβάλλουμε εμείς, αλλά μια που επιλέγει ο πελάτης μας να ζήσει μαζί του. Δουλεύουμε με χρώματα που παράγουν συναισθήματα, τη ζεστασιά του κεχριμπαριού στο δέρμα, την ηρεμία της τυρκουάζ, τη δύναμη του βαθύ μωβ. Δημιουργούμε κοσμήματα που φοριούνται κάθε μέρα, στιγμές διακριτικής ομορφιάς, αντικείμενα που γίνονται πιο σημαντικά όσο περνά ο καιρός. Το κόσμημά μας δεν ζητάει τίποτα από εκείνη/εκείνον που το φοράει παρά μόνο ειλικρίνεια, τη θέληση να επιλέξει κάτι που του κάνει νόημα, που το νιώθει αληθινό. Η τέχνη που δημιουργούμε γεννιέται από μια απλή φιλοσοφία, ότι η ομορφιά και η σκόπιμη δημιουργία ανήκουν στις στιγμές που ζούμε κάθε μέρα.',
+                aboutContent: 'Από το 2012 το Στούντιο IRINA NOLAZ δημιουργεί κοσμήματα που λένε μια ιστορία. Κάθε κομμάτι ξεκινάει ως σκέψη από τη φύση, μια παλέτα χρωμάτων, ένα σχήμα, ένα συναίσθημα που περιμένει να αποτυπωθεί μέσα από πολύτιμους και ημιπολύτιμους λίθους, ασήμι, σμάλτο, ρητίνη και χειροποίητα μικρά μωσαικά. Πιστεύουμε ότι το κόσμημα δεν είναι μόνο διακόσμηση, το αντιλαμβανόμαστε ως μια συνομιλία ανάμεσα στον δημιουργό και σε αυτόν που επιλέξει να το φορέσει, ένα μικρό αντικείμενο που κάποιος το διαλέγει και του δίνει νόημα. Η διαδικασία είναι εξ\' ολοκλήρου χειροποίητη με τα κοσμήματα να είναι σχεδιασμένα και κατασκευασμένα στο χέρι. Επιλέγουμε να δημιουργούμε μοναδικά κομμάτια ή περιορισμένες ποσότητες γιατί η μαζική παραγωγή δεν μπορεί να εξασφαλίσει την ουσία που αναζητούμε. Κάθε κομμάτι μεταφέρει τη δική του ιστορία, όχι μια ιστορία που του επιβάλλουμε εμείς, αλλά μια που επιλέγει ο πελάτης μας να ζήσει μαζί του. Δουλεύουμε με χρώματα που παράγουν συναισθήματα, τη ζεστασιά του κεχριμπαριού στο δέρμα, την ηρεμία της τυρκουάζ, τη δύναμη του βαθύ μωβ. Δημιουργούμε κοσμήματα που φοριούνται κάθε μέρα, στιγμές διακριτικής ομορφιάς, αντικείμενα που γίνονται πιο σημαντικά όσο περνά ο καιρός. Το κόσμημά μας δεν ζητάει τίποτα από αυτόν που το φοράει παρά μόνο ειλικρίνεια, τη θέληση να επιλέξει κάτι που του κάνει νόημα, που το νιώθει αληθινό. Η τέχνη που δημιουργούμε γεννιέται από μια απλή φιλοσοφία, ότι η ομορφιά και η σκόπιμη δημιουργία ανήκουν στις στιγμές που ζούμε κάθε μέρα.',
                 heroSubtitle: 'Στούντιο Κοσμημάτων που Λένε Ιστορία',
                 collectionsTitle: 'Συλλογές',
                 contactTitle: 'Επικοινωνήστε',
-                contactText: 'Γνωρίστε μας από κοντά.',
+                contactText: 'Βιώστε τη συλλογή μας προσωπικά. Προγραμματίστε μια ιδιωτική προβολή ή συμβουλευτική.',
                 earrings: 'Σκουλαρίκια',
-                pendants: 'Μενταγιόν',
+                pendants: 'Κολιέ',
                 bracelets: 'Βραχιόλια',
                 rings: 'Δαχτυλίδια',
                 homeDeco: 'Γλυπτά Χώρου'
@@ -854,13 +819,6 @@
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.add('active');
-            }
-
-            const logo = document.getElementById('navLogo');
-            if (sectionId === 'home') {
-                logo.classList.add('hidden');
-            } else {
-                logo.classList.remove('hidden');
             }
         }
 
@@ -900,13 +858,6 @@
         function updateLanguage() {
             const t = translations[currentLanguage];
             
-            // Update navigation tabs
-            document.getElementById('nav-link-home').textContent = t.navHome;
-            document.getElementById('nav-link-about').textContent = t.navAbout;
-            document.getElementById('nav-link-collections').textContent = t.navCollections;
-            document.getElementById('nav-link-contact').textContent = t.navContact;
-            
-            // Update section content
             document.getElementById('aboutTitle').textContent = t.aboutTitle;
             document.getElementById('aboutContent').textContent = t.aboutContent;
             document.getElementById('heroSubtitle').textContent = t.heroSubtitle;
@@ -914,7 +865,6 @@
             document.getElementById('contactTitle').textContent = t.contactTitle;
             document.getElementById('contactText').textContent = t.contactText;
             
-            // Update collection category buttons
             document.getElementById('btn-earrings').textContent = t.earrings;
             document.getElementById('btn-pendants').textContent = t.pendants;
             document.getElementById('btn-bracelets').textContent = t.bracelets;
