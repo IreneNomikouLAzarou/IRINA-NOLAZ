@@ -1994,27 +1994,35 @@
 
     <script>
 
-        const pieceImages = {savanna: ["48.png", "79.png", "89.png"], reverie:["22.png", "104.png", "114.png"]
+        const pieceImages = {
+            savanna: ["48.png", "79.png", "89.png"],
+            reverie: ["22.png", "104.png", "114.png"]
         };
-        let pieceIndex = {
-          savanna: 0
-        };
+        
+        const pieceState = {};
+        
         function nextImage(piece) {
-          let imgs = pieceImages[piece];
-          pieceIndex[piece] = (pieceIndex[piece] + 1) % imgs.length;
-          updateImage(piece);
+            if (pieceState[piece] === undefined) pieceState[piece] = 0;
+            pieceState[piece] = (pieceState[piece] + 1) % pieceImages[piece].length;
+            updatePieceImage(piece);
         }
+        
         function prevImage(piece) {
-          let imgs = pieceImages[piece];
-          pieceIndex[piece] = (pieceIndex[piece] - 1 + imgs.length) % imgs.length;
-          updateImage(piece);
+            if (pieceState[piece] === undefined) pieceState[piece] = 0;
+            pieceState[piece] = (pieceState[piece] - 1 + pieceImages[piece].length) % pieceImages[piece].length;
+            updatePieceImage(piece);
         }
-        function updateImage(piece) {
-          let idx = pieceIndex[piece];
-          let imgs = pieceImages[piece];
-          document.getElementById(piece + "-img").src = imgs[idx];
-          document.getElementById(piece + "-counter").innerText = (idx+1) + " / " + imgs.length;
+        
+        function updatePieceImage(piece) {
+            const idx = pieceState[piece];
+            const imgs = pieceImages[piece];
+            const btn = document.querySelector(`[onclick="nextImage('${piece}')"]`);
+            const img = btn.closest('.piece-images').querySelector('.piece-main-image img');
+            const counter = btn.closest('.piece-images').querySelector('span');
+            img.src = imgs[idx];
+            counter.textContent = (idx + 1) + " / " + imgs.length;
         }
+        
 
         
         let currentLanguage = 'en';
@@ -2071,21 +2079,7 @@
             event.target.classList.add('active');
         }
 
-        function nextImage(category, pieceIndex) {
-            const counter = document.getElementById(category + '-counter-' + pieceIndex);
-            const currentCount = parseInt(counter.textContent.split(' / ')[0]);
-            const total = parseInt(counter.textContent.split(' / ')[1]);
-            const nextCount = currentCount === total ? 1 : currentCount + 1;
-            counter.textContent = nextCount + ' / ' + total;
-        }
-
-        function prevImage(category, pieceIndex) {
-            const counter = document.getElementById(category + '-counter-' + pieceIndex);
-            const currentCount = parseInt(counter.textContent.split(' / ')[0]);
-            const total = parseInt(counter.textContent.split(' / ')[1]);
-            const prevCount = currentCount === 1 ? total : currentCount - 1;
-            counter.textContent = prevCount + ' / ' + total;
-        }
+        
 
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'en' ? 'gr' : 'en';
