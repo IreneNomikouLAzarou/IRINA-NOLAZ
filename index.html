@@ -1472,9 +1472,9 @@
                     <div class="piece-images">
                         <div class="piece-main-image" id="pendants-img-1"></div>
                         <div class="piece-navigation">
-                            <button class="arrow-btn" onclick="prevImage('pendants', 1)">←</button>
+                            <button class="arrow-btn" onclick="prevImage('savanna')">←</button>
                             <span id="pendants-counter-1">1 / 2</span>
-                            <button class="arrow-btn" onclick="nextImage('pendants', 1)">→</button>
+                            <button class="arrow-btn" onclick="nextImage('savanna')">→</button>
                         </div>
                     </div>
                     <div class="piece-info">
@@ -1623,6 +1623,30 @@
     </section>
 
     <script>
+
+        const pieceImages = {savanna: ["79.png", "48.png"]
+        };
+        let pieceIndex = {
+          savanna: 0
+        };
+        function nextImage(piece) {
+          let imgs = pieceImages[piece];
+          pieceIndex[piece] = (pieceIndex[piece] + 1) % imgs.length;
+          updateImage(piece);
+        }
+        function prevImage(piece) {
+          let imgs = pieceImages[piece];
+          pieceIndex[piece] = (pieceIndex[piece] - 1 + imgs.length) % imgs.length;
+          updateImage(piece);
+        }
+        function updateImage(piece) {
+          let idx = pieceIndex[piece];
+          let imgs = pieceImages[piece];
+          document.getElementById(piece + "-img").src = imgs[idx];
+          document.getElementById(piece + "-counter").innerText = (idx+1) + " / " + imgs.length;
+        }
+
+        
         let currentLanguage = 'en';
 
         const translations = {
