@@ -3082,19 +3082,19 @@
     <section class="contact" id="contact">
         <h2 id="contactTitle">Reach Out</h2>
         <p id="contactText">Experience our collection in person. Schedule a private viewing or consultation.</p>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <h3>Email</h3>
-                <a href="mailto:connect@irinanolaz.com">connect@irinanolaz.com</a>
-            </div>
-            <div class="contact-card">
-                <h3>Instagram</h3>
-                <a href="https://instagram.com/irina_nolaz" target="_blank">@irina_nolaz</a>
-            </div>
-            <div class="contact-card">
-                <h3>Schedule</h3>
-                <button class="contact-button">Schedule Now</button>
-            </div>
+        
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="contact-button">Send Message</button>
+        </form>
+             <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Instagram</h3>
+                    <a href="https://instagram.com/irina_nolaz" target="_blank">@irina_nolaz</a>
+                </div>
+                
         </div>
     </section>
 
